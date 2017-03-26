@@ -52,6 +52,8 @@ body{
 }
 #signedIn{
 	display: none;
+	-webkit-transition: 0.4;
+	transition: 0.4;
 }
 
 #notSignedIn {
