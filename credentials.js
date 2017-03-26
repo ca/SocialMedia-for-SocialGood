@@ -17,15 +17,23 @@ function saveSettings () {
   }
 }
 
+function displayNotSignIn() {
+  document.getElementById('notSignedIn').style.opacity = 1;
+  document.getElementById('notSignedIn').style.display = "block";
+}
 function hideNotSignIn(){
-		document.getElementById('notSignedIn').style.opacity = 0;
-		document.getElementById('notSignedIn').style.display = "none";
-		displaySignedIn();	
-	}
+	document.getElementById('notSignedIn').style.opacity = 0;
+	document.getElementById('notSignedIn').style.display = "none";
+	displaySignedIn();
+}
 function displaySignedIn() {
-		document.getElementById('signedIn').style.opacity = 1;
-		document.getElementById('signedIn').style.display = "block";		
-	}
+	document.getElementById('signedIn').style.opacity = 1;
+	document.getElementById('signedIn').style.display = "block";		
+}
+function hideSignedIn() {
+  document.getElementById('signedIn').style.opacity = 0;
+  document.getElementById('signedIn').style.display = "none";    
+}
 
 function updateBlacklist (site) {
   var blacklistRef = firebase.database().ref('/users/' + userId + '/blacklist').push();
@@ -39,6 +47,7 @@ function initApp() {
   // [START authstatelistener]
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
+      displaySignedIn();
       // User is signed in.
       var displayName = user.displayName;
       var email = user.email;
@@ -68,6 +77,7 @@ function initApp() {
     } else {
       // Let's try to get a Google auth token programmatically.
       // [START_EXCLUDE]
+      displayNotSignIn();
       document.getElementById('quickstart-button').textContent = 'Sign-in with Google';
       document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
       document.getElementById('quickstart-account-details').textContent = 'null';

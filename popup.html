@@ -24,34 +24,22 @@ limitations under the License.
        *************************************************************************************** -->
   <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
   <script src="credentials.js"></script>
-
 </head>
 <body>
   <div id="signedIn">
 	<div id="icons">
   		<img id="profile-pic" src="settings.svg">
-  		<img id="profile-pic" src="">
+  		<img id="profile-pic" src="https://placehold.it/50x50">
 	</div>
 	<p class="text"> You donated </p>
 	<p id="time"></p><img src="clapping-hands.png" id="hands"><br><br><br>
 	<p class="text"> to the <b> ALCU </b> this week. </p>
   </div>
   <div id="notSignedIn">
-	<h1> Social media for social good </h1>
+  	<h1> Social media for social good </h1>
   	<div class="quickstart-user-details-container">
-   	 <button id="quickstart-button" class="googleSignIn" onclick="hideNotSignIn()"><img src="google.png">Login with Google</button>
- 	</div>
+   	  <button id="quickstart-button" class="googleSignIn" onclick="hideNotSignIn()"><img src="google.png">Login with Google</button>
+ 	  </div>
   </div>
-  <script>
-	function hideNotSignIn(){
-		document.getElementById('notSignedIn').style.opacity = 0;
-		document.getElementById('notSignedIn').style.display = "none";
-		displaySignedIn();	
-	}
-	function displaySignedIn() {
-		document.getElementById('signedIn').style.opacity = 1;
-		document.getElementById('signedIn').style.display = "block";		
-	}
-  </script>
 </body>
 </html>

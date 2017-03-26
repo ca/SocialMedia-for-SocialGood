@@ -66,6 +66,15 @@ body{
 #icons img{
 	height: 30px;
 	width: 30px;
+	-webkit-transition: 0.4;
+	transition: 0.4;
+}
+
+#notSignedIn {
+	display: none;
+	opacity: 0;
+	-webkit-transition: 0.4;
+	transition: 0.4;
 }
 #hands{
 	height: 40px;
