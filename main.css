@@ -2,11 +2,6 @@
 	margin: 0;
 	padding: 0;
 }
-#profile-pic {
-	border-radius: 15px;
-	height: 30px;	
-	width: 30px;
-}
 @font-face {
   	font-family: 'Avenir Next Bold';
   	src: url("fonts/AvenirNextLTPro-Bold.otf");
@@ -54,7 +49,7 @@
 body{
 	width: 300px;
 	border-radius: 15px;
-	padding: 10px;
+	padding: 20px;
 }
 #notSignedIn{
 	display: none;
@@ -63,11 +58,18 @@ body{
 #icons{
 	float: right;
 }
-#icons img{
-	height: 30px;
+#profile-pic {
+	border-radius: 15px;
+	height: 30px;	
 	width: 30px;
+
 	-webkit-transition: .4s;
 	transition: .4s;
+}
+#icons img{
+	-webkit-transition: .4s;
+	transition: .4s;
+	margin-right: 10px;
 }
 
 #notSignedIn {
@@ -80,5 +82,9 @@ body{
 	height: 40px;
 	margin-top: 17px;
 	margin-left: 10px;
+}
+#settings{
+	height: 20px;
+	margin-top: -10px;
 }
 
