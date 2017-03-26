@@ -47,6 +47,7 @@ function initApp() {
   // [START authstatelistener]
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
+      hideNotSignIn();
       displaySignedIn();
       // User is signed in.
       var displayName = user.displayName;
@@ -62,15 +63,17 @@ function initApp() {
       var socialMediaTime = firebase.database().ref('/users/' + uid + '/time');
       socialMediaTime.on('value', function(snapshot) {
         var donation = '$' + Math.ceil((snapshot.val() / 60)); // $1 every minute
-        document.getElementById('time').innerHTML = donation;
+        document.getElementById('money').innerHTML = donation;
+        // document.getElementById('time').innerHTML = Math.ceil(snapshot.val() / 60 / 60);
       });
 
-      document.getElementsByClassName('profile-pic')[0].src = photoURL;
+      document.getElementById('profile-pic').src = photoURL;
 
       // [END_EXCLUDE]
     } else {
       // Let's try to get a Google auth token programmatically.
       // [START_EXCLUDE]
+      hideSignedIn();
       displayNotSignIn();
       document.getElementById('quickstart-button').textContent = 'Sign-in with Google';
       document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';

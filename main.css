@@ -35,9 +35,10 @@
 }
 
 .text{
-	font-size: 12pt;
+	font-size: 18px;
 }
-#time{
+#time,
+#money{
   	font-family: 'Avenir Next Bold';
 	text-transform: uppercase;
 	color: #4990E2;
@@ -46,14 +47,32 @@
 	font-size: 40pt;
 	float: left;
 }
+#time {
+	color: #FE2851;
+	display: block;
+	float:none;
+	margin: 0;
+}
 body{
 	width: 300px;
 	border-radius: 15px;
-	padding: 20px;
+	padding: 20px 40px;
+	border-radius: 8px;
 }
 #notSignedIn{
 	display: none;
 	opacity: 0;
+	text-align: center;
+}
+#notSignedIn h1 {
+	margin: 0 auto;
+	text-align: center;
+	width: 80%;
+	margin-bottom: 10px;
+	color: #4990E2;
+}
+#quickstart-button {
+	margin: 0 auto;
 }
 #icons{
 	float: right;
@@ -83,8 +102,13 @@ body{
 	margin-top: 17px;
 	margin-left: 10px;
 }
+#icons {
+	display: flex;
+	align-items: center;
+}
 #settings{
 	height: 20px;
-	margin-top: -10px;
+	/*margin-top: 10px;*/
+	vertical-align: center;
 }
 
