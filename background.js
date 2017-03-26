@@ -12,7 +12,6 @@ firebase.initializeApp(config);
 var timer = null;
 var counter = 0;
 var databaseRef;
-// var blacklist = [{website:null},{website:null}];
 
 chrome.tabs.onActivated.addListener(function (info) {
   chrome.tabs.get(info.tabId, function(tab) {

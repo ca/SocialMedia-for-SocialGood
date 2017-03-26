@@ -1,10 +1,8 @@
 {
   "manifest_version": 2,
-
   "name": "Social Media for Social Good",
   "description": "Donate one dollar to charity for every hour you spend on social media!",
   "version": "1.0",
-
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html"
@@ -14,20 +12,19 @@
     "tabs",
     "identity",
     "background",
-    "webNavigation", "*://*/*"
+    "webNavigation",
+    "*://*/*"
   ],
   "background": {
     "scripts": ["firebase.js","background.js"]
   },
   "content_security_policy":"script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'",
   "oauth2": {
-    // TODO(DEVELOPER): Change the line below to the OAuth Client ID you created as described in https://developer.chrome.com/apps/app_identity#google
     "client_id": "519091086531-g8vukml6pvqdftofpb2qn1v50lcn99g4.apps.googleusercontent.com",
     "scopes": [
       "https://www.googleapis.com/auth/userinfo.email",
       "https://www.googleapis.com/auth/userinfo.profile"
     ]
   },
-  // TODO(DEVELOPER): Change the line below to your Chrome Extension's public key as described in https://developer.chrome.com/apps/app_identity#google
   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtcDinAiyC8XpEfDs/G7eRsI2EEIFWLzEvcMtoRKzlkz2TFDVwRLoi7p80I0CQKs1YiPKcLw1WGKmoyJ4PxaADVivTq9ma0fDJXBCSCoEtUjM/jIxnEMPe9E44B3YcD9LifZ0FmU3mdqlYmQCTkenCAjrD8tRE+8bu3G3BoROtdDQyO+O4buyJIwnHW/yLab5mhG/HkZIoyXpyAJmcX6zl6JVb0w7QdLofQYqeqp6Z87kRl+cPHWmM2AbsKjIWjldwVuXoKncAO/9cE69bpJxuRvdLcS5LMRWZ/Wxrvz1znISioGwf+42jh+6uQv3Vjp6bfkDO1zdiRnkwWA/9LRprQIDAQAB"
 }
