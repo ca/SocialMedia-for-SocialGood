@@ -24,12 +24,17 @@ limitations under the License.
        *************************************************************************************** -->
   <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
   <script src="credentials.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
 </head>
 <body>
   <div id="signedIn">
-  	<img id="profile-pic" src="">
-  	<h1 id="time"></h1>
+	<div id="icons">
+  		<img id="profile-pic" src="settings.svg">
+  		<img id="profile-pic" src="">
+	</div>
+	<p class="text"> You donated </p>
+	<p id="time"></p><img src="clapping-hands.png" id="hands"><br><br><br>
+	<p class="text"> to the <b> ALCU </b> this week. </p>
   </div>
   <div id="notSignedIn">
 	<h1> Social media for social good </h1>
