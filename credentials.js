@@ -9,6 +9,14 @@ var config = {
 };
 firebase.initializeApp(config);
 
+function saveSettings () {
+  var arrayOfSocials = document.getElementById('socials').split(',');
+  for (i=0; i<arrayOfSocials.length; i++) {
+    arrayOfSocials[i] = arrayOfSocials[i].replace(/ /g,'');
+    updateBlacklist(arrayOfSocials[i]);
+  }
+}
+
 function updateBlacklist (site) {
   var blacklistRef = firebase.database().ref('/users/' + userId + '/blacklist').push();
   blacklistRef.set({
