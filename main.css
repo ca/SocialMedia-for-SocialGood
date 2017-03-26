@@ -1,5 +1,60 @@
+*{
+	margin: 0;
+	padding: 0;
+}
 #profile-pic {
 	border-radius: 25px;
 	height: 50px;	
 	width: 50px;
+}
+@font-face {
+  	font-family: 'Avenir Next Bold';
+  	src: url("fonts/AvenirNextLTPro-Bold.otf");
+}
+
+@font-face {
+  	font-family: 'Avenir Next Regular';
+  	src: url("fonts/AvenirNextLTPro-Regular.otf");
+}
+.googleSignIn{
+	background-color: #d74937;
+	border: none;
+	border-radius: 10px;
+	color: white;
+	font-family: "Avenir Next Regular";
+	height: 60px;
+	padding: 15px;
+	font-size: 14pt;
+	margin-left: 50px;
+	margin-bottom: 30px;
+	margin-top: 15px;
+}
+
+.googleSignIn:hover{
+	cursor: pointer;
+	opacity: .9;
+}
+
+.googleSignIn img{
+	float: left;
+}
+
+h1{
+	text-align: center;
+  	font-family: 'Avenir Next Bold';
+	text-transform: uppercase;
+	color: #4990E2;
+	margin-top: 30px;
+}
+body{
+	width: 300px;
+	border-radius: 15px;
+}
+#signedIn{
+	display: none;
+}
+
+#notSignedIn {
+	-webkit-transition: 0.4;
+	transition: 0.4;
 }
