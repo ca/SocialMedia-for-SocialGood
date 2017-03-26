@@ -9,6 +9,16 @@ var config = {
 };
 firebase.initializeApp(config);
 
+function hideNotSignIn(){
+		document.getElementById('notSignedIn').style.opacity = 0;
+		document.getElementById('notSignedIn').style.display = "none";
+		displaySignedIn();	
+	}
+function displaySignedIn() {
+		document.getElementById('signedIn').style.opacity = 1;
+		document.getElementById('signedIn').style.display = "block";		
+	}
+
 function updateBlacklist (site) {
   var blacklistRef = firebase.database().ref('/users/' + userId + '/blacklist').push();
   blacklistRef.set({
