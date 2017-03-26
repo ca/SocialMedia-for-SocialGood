@@ -9,13 +9,13 @@ var config = {
 };
 firebase.initializeApp(config);
 
-function saveSettings () {
-  var arrayOfSocials = document.getElementById('socials').split(',');
-  for (i=0; i<arrayOfSocials.length; i++) {
-    arrayOfSocials[i] = arrayOfSocials[i].replace(/ /g,'');
-    updateBlacklist(arrayOfSocials[i]);
-  }
-}
+// function saveSettings () {
+//   var arrayOfSocials = document.getElementById('socials').split(',');
+//   for (i=0; i<arrayOfSocials.length; i++) {
+//     arrayOfSocials[i] = arrayOfSocials[i].replace(/ /g,'');
+//     updateBlacklist(arrayOfSocials[i]);
+//   }
+// }
 
 function displayNotSignIn() {
   document.getElementById('notSignedIn').style.opacity = 1;
@@ -35,12 +35,12 @@ function hideSignedIn() {
   document.getElementById('signedIn').style.display = "none";    
 }
 
-function updateBlacklist (site) {
-  var blacklistRef = firebase.database().ref('/users/' + userId + '/blacklist').push();
-  blacklistRef.set({
-      website: site
-  });
-}
+// function updateBlacklist (site) {
+//   var blacklistRef = firebase.database().ref('/users/' + userId + '/blacklist').push();
+//   blacklistRef.set({
+//       website: site
+//   });
+// }
 
 function initApp() {
   // Listen for auth state changes.
@@ -58,21 +58,15 @@ function initApp() {
       var providerData = user.providerData;
 
       // [START_EXCLUDE]
-      // firebase.database().ref('/users/' + uid + '/time').once('value').then(function(snapshot) {
-      //   document.getElementById('time').innerHTML = snapshot.val();
-      //   // alert(snapshot.val());
-      // });
 
       var socialMediaTime = firebase.database().ref('/users/' + uid + '/time');
       socialMediaTime.on('value', function(snapshot) {
-        var donation = '$' + Math.ceil((snapshot.val() / 60) / 60);
+        var donation = '$' + Math.ceil((snapshot.val() / 60)); // $1 every minute
         document.getElementById('time').innerHTML = donation;
       });
 
-      document.getElementById('quickstart-button').textContent = 'Sign out';
-      document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
-      document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
-      document.getElementById('profile-pic').src = user.photoURL;
+      document.getElementsByClassName('profile-pic')[0].src = photoURL;
+
       // [END_EXCLUDE]
     } else {
       // Let's try to get a Google auth token programmatically.

@@ -11,13 +11,13 @@ firebase.initializeApp(config);
 
 var timer = null;
 var counter = 0;
-var databaseRef, blacklistRef;
-var blacklist = [{website:null},{website:null}];
+var databaseRef;
+// var blacklist = [{website:null},{website:null}];
 
 chrome.tabs.onActivated.addListener(function (info) {
   chrome.tabs.get(info.tabId, function(tab) {
 
-    if (tab.url.indexOf(blacklist[0].website) || tab.url.indexOf(blacklist[1].website)) {
+    if (tab.url.indexOf('facebook') > -1 || tab.url.indexOf('twitter') > -1) {
       // Start a timer
       if (!timer) {
         timer = setInterval(function () {
@@ -43,11 +43,11 @@ function initApp() {
   // Listen for auth state changes.
   firebase.auth().onAuthStateChanged(function(user) {
     databaseRef = firebase.database().ref('users').child(user.uid).child('time');
-    blacklistRef = firebase.database().ref('users').child(user.uid).child('blacklist');
-    blacklistRef.once('value').then(function(snapshot) {
-      // get the array of blacklisted items
-      blacklist = snapshot.val();
-    });
+    // blacklistRef = firebase.database().ref('users').child(user.uid).child('blacklist');
+    // blacklistRef.once('value').then(function(snapshot) {
+    //   // get the array of blacklisted items
+    //   blacklist = snapshot.val();
+    // });
   });
 }
 
