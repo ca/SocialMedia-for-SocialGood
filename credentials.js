@@ -62,7 +62,7 @@ function initApp() {
 
       var socialMediaTime = firebase.database().ref('/users/' + uid + '/time');
       socialMediaTime.on('value', function(snapshot) {
-        var donation = '$' + Math.ceil((snapshot.val() / 60)); // $1 every minute
+        var donation = '$' + Math.ceil((snapshot.val() / 30)); // $1 every 30 s
         document.getElementById('money').innerHTML = donation;
         // document.getElementById('time').innerHTML = Math.ceil(snapshot.val() / 60 / 60);
       });

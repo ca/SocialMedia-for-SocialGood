@@ -41,7 +41,7 @@ chrome.tabs.onActivated.addListener(function (info) {
 function initApp() {
   // Listen for auth state changes.
   firebase.auth().onAuthStateChanged(function(user) {
-    databaseRef = firebase.database().ref('users').child(user.uid).child('time');
+    if (user) { databaseRef = firebase.database().ref('users').child(user.uid).child('time'); }
     // blacklistRef = firebase.database().ref('users').child(user.uid).child('blacklist');
     // blacklistRef.once('value').then(function(snapshot) {
     //   // get the array of blacklisted items
